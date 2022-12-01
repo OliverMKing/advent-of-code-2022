@@ -7,8 +7,9 @@ for line in fileinput.input():
     cleanedLine = line.strip()
     if cleanedLine.isdigit():
         currElf += int(cleanedLine)
-        maxCalories = max(maxCalories, currElf)
     else:
+        maxCalories = max(maxCalories, currElf)
         currElf = 0
+maxCalories = max(maxCalories, currElf)
 
 print(maxCalories)
