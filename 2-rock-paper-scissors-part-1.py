@@ -14,10 +14,10 @@ class Move(Enum):
         else:
             return 3
 
-def letterToMove(letter: str) -> Move:
-    if letter in ['A', 'X']:
+def strToMove(s: str) -> Move:
+    if s in ['A', 'X']:
         return Move.ROCK
-    elif letter in ['B', 'Y']:
+    elif s in ['B', 'Y']:
         return Move.PAPER
     else:
         return Move.SCISSORS
@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     for line in fileinput.input():
         opp, you = line.strip().split(' ')
-        oppMove, youMove = map(letterToMove, (opp, you))
+        oppMove, youMove = map(strToMove, (opp, you))
         result = movesToResult(oppMove, youMove)
 
         total += youMove.points() + result.points()
