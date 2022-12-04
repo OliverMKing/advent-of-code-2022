@@ -1,6 +1,6 @@
 import fileinput
 
-def parsedLine(line: str):
+def parseLine(line: str) -> list[list[int]]:
     cleaned = line.strip()
     elves = cleaned.split(',')
     return [map(int, elf.split('-')) for elf in elves]
@@ -8,7 +8,7 @@ def parsedLine(line: str):
 if __name__ == '__main__':
     total = 0
 
-    splitInput = [parsedLine(line) for line in fileinput.input()]
+    splitInput = [parseLine(line) for line in fileinput.input()]
     for elf1, elf2 in splitInput:
         elf1Min, elf1Max = elf1
         elf2Min, elf2Max = elf2
