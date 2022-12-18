@@ -14,7 +14,7 @@ for i, char in enumerate(signal):
     removeI = i - lastN
     if removeI < 0:
         continue
-    
+
     removeChar = signal[removeI]
     latest[removeChar] -= 1
     if latest[removeChar] == 1:
